@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import ResumeNav from '../../components/ResumeNav'
 import ResumePreview from '../../components/ResumePreview'
+import ATSScore from '../../components/ATSScore'
 import { resumeStore } from '../../store/resumeStore'
+import { calculateATSScore } from '../../utils/atsScoring'
 import { ResumeData, Education, Experience, Project } from '../../types/resume'
 import './Builder.css'
 
 function Builder() {
   const [resumeData, setResumeData] = useState<ResumeData>(resumeStore.getData())
+  const atsScore = calculateATSScore(resumeData)
 
   useEffect(() => {
     resumeStore.saveData(resumeData)
@@ -307,6 +310,7 @@ function Builder() {
         </div>
 
         <div className="builder-preview">
+          <ATSScore score={atsScore} />
           <ResumePreview data={resumeData} />
         </div>
       </div>

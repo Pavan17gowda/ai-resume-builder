@@ -1,6 +1,6 @@
 import { ResumeData } from '../types/resume'
 
-const STORAGE_KEY = 'resume_data'
+const STORAGE_KEY = 'resumeBuilderData'
 
 const initialData: ResumeData = {
   personalInfo: {
