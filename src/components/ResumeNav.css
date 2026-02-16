@@ -1,0 +1,24 @@
+.resume-nav {
+  display: flex;
+  gap: 40px;
+  padding: 24px 40px;
+  background: #F7F6F3;
+  border-bottom: 1px solid #e0ddd8;
+}
+
+.nav-link {
+  font-size: 16px;
+  color: #4a4a4a;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 400;
+}
+
+.nav-link:hover {
+  color: #1a1a1a;
+}
+
+.nav-link.active {
+  color: #8B0000;
+  font-weight: 500;
+}

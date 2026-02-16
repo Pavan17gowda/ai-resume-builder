@@ -1,0 +1,17 @@
+.preview-page {
+  min-height: 100vh;
+  background: #F7F6F3;
+}
+
+.preview-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.preview-content {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e0ddd8;
+}

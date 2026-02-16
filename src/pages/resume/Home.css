@@ -1,0 +1,40 @@
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7F6F3;
+  padding: 40px;
+}
+
+.home-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.home-headline {
+  font-size: 64px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.home-cta {
+  padding: 16px 48px;
+  background: #8B0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.home-cta:hover {
+  background: #6d0000;
+  transform: translateY(-2px);
+}

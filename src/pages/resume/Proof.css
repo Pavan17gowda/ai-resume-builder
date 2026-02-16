@@ -1,0 +1,64 @@
+.proof-page-resume {
+  min-height: 100vh;
+  background: #F7F6F3;
+}
+
+.proof-container-resume {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.proof-container-resume h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+}
+
+.proof-section {
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #e0ddd8;
+  margin-bottom: 24px;
+}
+
+.proof-section h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.proof-placeholder {
+  font-size: 16px;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.artifact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.artifact-card {
+  background: #F7F6F3;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e0ddd8;
+}
+
+.artifact-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.artifact-card p {
+  font-size: 14px;
+  color: #1a1a1a;
+  font-weight: 500;
+}
