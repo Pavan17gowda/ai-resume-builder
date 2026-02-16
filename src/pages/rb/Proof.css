@@ -1,0 +1,160 @@
+.proof-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.proof-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.back-btn {
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.proof-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.proof-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.step-status, .submission-links {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.step-status h2, .submission-links h2 {
+  font-size: 24px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.status-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.status-card.completed {
+  border-color: #10b981;
+  background: #d1fae5;
+}
+
+.status-card.incomplete {
+  border-color: #e5e7eb;
+  background: #f9fafb;
+}
+
+.status-number {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.status-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.status-card.completed .status-icon {
+  color: #10b981;
+}
+
+.status-card.incomplete .status-icon {
+  color: #d1d5db;
+}
+
+.status-file {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 10px;
+  word-break: break-word;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.copy-submission-btn {
+  width: 100%;
+  padding: 14px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.copy-submission-btn:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.copy-submission-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.warning {
+  text-align: center;
+  color: #f59e0b;
+  font-size: 14px;
+  margin-top: 10px;
+}

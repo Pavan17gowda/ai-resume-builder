@@ -1,0 +1,41 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: #F7F6F3;
+  color: #1a1a1a;
+  border-bottom: 1px solid #e0ddd8;
+}
+
+.top-bar-left {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.top-bar-center {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-badge.completed {
+  background: #8B0000;
+  color: white;
+}
+
+.status-badge.in-progress {
+  background: #8B0000;
+  color: white;
+}

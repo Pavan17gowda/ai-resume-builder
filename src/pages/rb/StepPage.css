@@ -1,0 +1,36 @@
+.step-page {
+  max-width: 800px;
+}
+
+.step-page h2 {
+  font-size: 32px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.step-page .content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.step-page h3 {
+  font-size: 20px;
+  color: #1f2937;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.step-page ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.step-page li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.step-page p {
+  margin-bottom: 15px;
+}

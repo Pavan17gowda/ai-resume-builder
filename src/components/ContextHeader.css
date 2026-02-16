@@ -1,0 +1,20 @@
+.context-header {
+  padding: 40px;
+  background: #F7F6F3;
+  border-bottom: none;
+}
+
+.context-header h1 {
+  font-size: 40px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.context-header p {
+  font-size: 18px;
+  color: #4a4a4a;
+  line-height: 1.8;
+  font-weight: 300;
+}
