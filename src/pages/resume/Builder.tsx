@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import ResumeNav from '../../components/ResumeNav'
 import ResumePreview from '../../components/ResumePreview'
-import ATSScore from '../../components/ATSScore'
+import ATSScoreCircle from '../../components/ATSScoreCircle'
 import TemplatePicker from '../../components/TemplatePicker'
 import ColorPicker from '../../components/ColorPicker'
 import ImprovementPanel from '../../components/ImprovementPanel'
@@ -9,7 +9,7 @@ import SkillsSection from '../../components/SkillsSection'
 import ProjectsSection from '../../components/ProjectsSection'
 import { resumeStore } from '../../store/resumeStore'
 import { templateStore } from '../../store/templateStore'
-import { calculateATSScore } from '../../utils/atsScoring'
+import { calculateATSScore } from '../../utils/atsScoreCalculator'
 import { getTopImprovements } from '../../utils/improvementGuidance'
 import { getBulletSuggestions } from '../../utils/bulletGuidance'
 import { ResumeData, Education, Experience, SkillCategories } from '../../types/resume'
@@ -320,7 +320,7 @@ function Builder() {
         <div className="builder-preview">
           <TemplatePicker selected={template} onChange={handleTemplateChange} />
           <ColorPicker selected={colorTheme} onChange={handleColorChange} />
-          <ATSScore score={atsScore} />
+          <ATSScoreCircle result={atsScore} />
           <ImprovementPanel improvements={improvements} />
           <ResumePreview data={resumeData} template={template} colorTheme={colorTheme} />
         </div>

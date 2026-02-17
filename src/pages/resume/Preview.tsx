@@ -3,9 +3,11 @@ import ResumeNav from '../../components/ResumeNav'
 import ResumePreview from '../../components/ResumePreview'
 import TemplatePicker from '../../components/TemplatePicker'
 import ColorPicker from '../../components/ColorPicker'
+import ATSScoreCircle from '../../components/ATSScoreCircle'
 import ExportButtons from '../../components/ExportButtons'
 import { resumeStore } from '../../store/resumeStore'
 import { templateStore } from '../../store/templateStore'
+import { calculateATSScore } from '../../utils/atsScoreCalculator'
 import { ResumeData } from '../../types/resume'
 import { ResumeTemplate, ColorTheme } from '../../types'
 import './Preview.css'
@@ -15,9 +17,18 @@ function Preview() {
   const [template, setTemplate] = useState<ResumeTemplate>(templateStore.getTemplate())
   const [colorTheme, setColorTheme] = useState<ColorTheme>(templateStore.getColorTheme())
   const [showToast, setShowToast] = useState(false)
+  
+  const atsScore = calculateATSScore(resumeData)
 
   useEffect(() => {
     setResumeData(resumeStore.getData())
+    
+    // Refresh data every second to catch updates from builder
+    const interval = setInterval(() => {
+      setResumeData(resumeStore.getData())
+    }, 1000)
+    
+    return () => clearInterval(interval)
   }, [])
 
   const handleTemplateChange = (newTemplate: ResumeTemplate) => {
@@ -43,6 +54,7 @@ function Preview() {
         <div className="preview-controls">
           <TemplatePicker selected={template} onChange={handleTemplateChange} />
           <ColorPicker selected={colorTheme} onChange={handleColorChange} />
+          <ATSScoreCircle result={atsScore} />
           <ExportButtons data={resumeData} onDownloadPDF={handleDownloadPDF} />
         </div>
         <div className="preview-content">
