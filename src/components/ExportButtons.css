@@ -1,0 +1,50 @@
+.export-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.export-btn {
+  padding: 12px 24px;
+  border: 1px solid #e0ddd8;
+  background: white;
+  color: #1a1a1a;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.export-btn:hover {
+  border-color: #8B0000;
+  color: #8B0000;
+}
+
+.export-btn.print-btn {
+  background: #8B0000;
+  color: white;
+  border-color: #8B0000;
+}
+
+.export-btn.print-btn:hover {
+  background: #6d0000;
+}
+
+.export-warning {
+  font-size: 13px;
+  color: #8B0000;
+  font-style: italic;
+  padding: 8px 16px;
+  background: #fff5f5;
+  border-radius: 6px;
+  border-left: 3px solid #8B0000;
+}
+
+@media print {
+  .export-buttons {
+    display: none;
+  }
+}

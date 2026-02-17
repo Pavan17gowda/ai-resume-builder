@@ -1,0 +1,175 @@
+@media print {
+  /* Hide all UI elements */
+  .resume-nav,
+  .preview-controls,
+  .template-selector,
+  .export-buttons,
+  .export-warning {
+    display: none !important;
+  }
+
+  /* Reset page */
+  @page {
+    margin: 0.5in;
+    size: letter;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+  }
+
+  /* Preview page adjustments */
+  .preview-page {
+    background: white !important;
+  }
+
+  .preview-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .preview-content {
+    background: white !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .resume-preview {
+    background: white !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .resume-paper {
+    background: white !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    min-height: auto !important;
+  }
+
+  /* Remove all colored accents */
+  .resume-paper * {
+    color: #000 !important;
+    background: white !important;
+    border-color: #000 !important;
+  }
+
+  /* Header styling */
+  .resume-header {
+    border-bottom: 1px solid #000 !important;
+    padding-bottom: 12pt !important;
+    margin-bottom: 16pt !important;
+  }
+
+  .resume-name {
+    font-size: 24pt !important;
+    margin-bottom: 6pt !important;
+  }
+
+  .resume-contact,
+  .resume-links {
+    font-size: 10pt !important;
+  }
+
+  /* Section styling */
+  .resume-section {
+    margin-bottom: 16pt !important;
+    page-break-inside: avoid;
+  }
+
+  .resume-section-title {
+    font-size: 12pt !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid #000 !important;
+    padding-bottom: 4pt !important;
+    margin-bottom: 10pt !important;
+  }
+
+  /* Entry styling */
+  .resume-entry {
+    margin-bottom: 12pt !important;
+    page-break-inside: avoid;
+  }
+
+  .entry-title {
+    font-size: 11pt !important;
+    font-weight: 600 !important;
+    margin-bottom: 2pt !important;
+  }
+
+  .entry-subtitle {
+    font-size: 10pt !important;
+    font-style: italic;
+  }
+
+  .entry-date {
+    font-size: 10pt !important;
+  }
+
+  .entry-description {
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+    margin-top: 4pt !important;
+  }
+
+  .entry-tech {
+    font-size: 9pt !important;
+    font-style: italic;
+  }
+
+  .resume-summary {
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+  }
+
+  .resume-skills {
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Page break rules */
+  .resume-section {
+    page-break-after: auto;
+  }
+
+  .resume-entry {
+    page-break-inside: avoid;
+  }
+
+  /* Avoid orphans and widows */
+  p, .entry-description {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Template-specific print adjustments */
+  .resume-paper.template-modern .resume-header,
+  .resume-paper.template-minimal .resume-header {
+    text-align: left !important;
+  }
+
+  .resume-paper.template-modern .resume-contact,
+  .resume-paper.template-minimal .resume-contact {
+    justify-content: flex-start !important;
+  }
+
+  /* Ensure consistent spacing */
+  .resume-paper * {
+    margin-top: 0 !important;
+  }
+
+  .resume-section:first-child {
+    margin-top: 0 !important;
+  }
+
+  /* Remove empty state message */
+  .resume-empty-state {
+    display: none !important;
+  }
+}

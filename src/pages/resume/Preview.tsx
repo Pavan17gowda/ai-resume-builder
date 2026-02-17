@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import ResumeNav from '../../components/ResumeNav'
 import ResumePreview from '../../components/ResumePreview'
 import TemplateSelector from '../../components/TemplateSelector'
+import ExportButtons from '../../components/ExportButtons'
 import { resumeStore } from '../../store/resumeStore'
 import { templateStore } from '../../store/templateStore'
 import { ResumeData } from '../../types/resume'
@@ -28,6 +29,7 @@ function Preview() {
       <div className="preview-container">
         <div className="preview-controls">
           <TemplateSelector selected={template} onChange={handleTemplateChange} />
+          <ExportButtons data={resumeData} />
         </div>
         <div className="preview-content">
           <ResumePreview data={resumeData} template={template} />
