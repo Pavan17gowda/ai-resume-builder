@@ -11,6 +11,14 @@ export interface ProofData {
   deployLink: string
 }
 
+export interface FinalSubmission {
+  lovableLink: string
+  githubLink: string
+  deployLink: string
+  testChecklistPassed: boolean
+  submittedAt?: string
+}
+
 export type ResumeTemplate = 'classic' | 'modern' | 'minimal'
 
 export type ColorTheme = 'teal' | 'navy' | 'burgundy' | 'forest' | 'charcoal'

@@ -39,3 +39,8 @@
   background: #8B0000;
   color: white;
 }
+
+.status-badge.shipped {
+  background: #10b981;
+  color: white;
+}

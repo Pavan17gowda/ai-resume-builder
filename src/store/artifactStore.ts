@@ -1,7 +1,9 @@
-import { StepArtifact, ProofData } from '../types'
+import { StepArtifact, ProofData, FinalSubmission } from '../types'
 
 const STORAGE_KEY = 'rb_artifacts'
 const PROOF_KEY = 'rb_proof_data'
+const FINAL_SUBMISSION_KEY = 'rb_final_submission'
+const TEST_CHECKLIST_KEY = 'rb_test_checklist_passed'
 
 export const artifactStore = {
   getArtifacts(): StepArtifact[] {
@@ -48,5 +50,36 @@ export const artifactStore = {
 
   saveProofData(data: ProofData): void {
     localStorage.setItem(PROOF_KEY, JSON.stringify(data))
+  },
+
+  getFinalSubmission(): FinalSubmission | null {
+    const stored = localStorage.getItem(FINAL_SUBMISSION_KEY)
+    return stored ? JSON.parse(stored) : null
+  },
+
+  saveFinalSubmission(data: FinalSubmission): void {
+    localStorage.setItem(FINAL_SUBMISSION_KEY, JSON.stringify(data))
+  },
+
+  getTestChecklistStatus(): boolean {
+    const stored = localStorage.getItem(TEST_CHECKLIST_KEY)
+    return stored === 'true'
+  },
+
+  setTestChecklistStatus(passed: boolean): void {
+    localStorage.setItem(TEST_CHECKLIST_KEY, passed.toString())
+  },
+
+  isProjectShipped(): boolean {
+    const artifacts = this.getArtifacts()
+    const allStepsCompleted = artifacts.every(a => a.uploaded)
+    const testsPassed = this.getTestChecklistStatus()
+    const submission = this.getFinalSubmission()
+    const allLinksProvided = submission && 
+      submission.lovableLink && 
+      submission.githubLink && 
+      submission.deployLink
+    
+    return allStepsCompleted && testsPassed && !!allLinksProvided
   }
 }
