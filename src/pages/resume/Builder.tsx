@@ -12,7 +12,7 @@ import { templateStore } from '../../store/templateStore'
 import { calculateATSScore } from '../../utils/atsScoreCalculator'
 import { getTopImprovements } from '../../utils/improvementGuidance'
 import { getBulletSuggestions } from '../../utils/bulletGuidance'
-import { ResumeData, Education, Experience, SkillCategories } from '../../types/resume'
+import { ResumeData, Education, Experience } from '../../types/resume'
 import { ResumeTemplate, ColorTheme } from '../../types'
 import './Builder.css'
 
@@ -101,34 +101,6 @@ function Builder() {
     setResumeData({
       ...resumeData,
       experience: resumeData.experience.filter(exp => exp.id !== id)
-    })
-  }
-
-  const addProject = () => {
-    const newProject = {
-      id: Date.now().toString(),
-      name: '',
-      description: '',
-      technologies: [],
-      liveUrl: '',
-      githubUrl: ''
-    }
-    setResumeData({ ...resumeData, projects: [...resumeData.projects, newProject] })
-  }
-
-  const updateProject = (id: string, field: string, value: any) => {
-    setResumeData({
-      ...resumeData,
-      projects: resumeData.projects.map(proj =>
-        proj.id === id ? { ...proj, [field]: value } : proj
-      )
-    })
-  }
-
-  const removeProject = (id: string) => {
-    setResumeData({
-      ...resumeData,
-      projects: resumeData.projects.filter(proj => proj.id !== id)
     })
   }
 

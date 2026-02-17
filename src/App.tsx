@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import PremiumLayout from './components/PremiumLayout'
 import Problem from './pages/rb/Problem'
 import Market from './pages/rb/Market'
