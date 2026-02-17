@@ -143,3 +143,88 @@
   font-size: 16px;
   font-style: italic;
 }
+
+
+/* Template: Classic (default) */
+.resume-paper.template-classic {
+  /* Already styled above */
+}
+
+/* Template: Modern */
+.resume-paper.template-modern .resume-header {
+  text-align: left;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.resume-paper.template-modern .resume-name {
+  font-size: 36px;
+  letter-spacing: 0.05em;
+}
+
+.resume-paper.template-modern .resume-contact {
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.resume-paper.template-modern .resume-section-title {
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 6px;
+}
+
+.resume-paper.template-modern .entry-header {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resume-paper.template-modern .entry-date {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+/* Template: Minimal */
+.resume-paper.template-minimal .resume-header {
+  text-align: left;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 16px;
+}
+
+.resume-paper.template-minimal .resume-name {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.resume-paper.template-minimal .resume-contact {
+  justify-content: flex-start;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.resume-paper.template-minimal .resume-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-bottom: none;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.resume-paper.template-minimal .entry-title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.resume-paper.template-minimal .entry-subtitle {
+  font-size: 13px;
+}
+
+.resume-paper.template-minimal .entry-description {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.resume-paper.template-minimal .resume-section {
+  margin-bottom: 20px;
+}

@@ -1,11 +1,13 @@
 import { ResumeData } from '../types/resume'
+import { ResumeTemplate } from '../types'
 import './ResumePreview.css'
 
 interface ResumePreviewProps {
   data: ResumeData
+  template?: ResumeTemplate
 }
 
-function ResumePreview({ data }: ResumePreviewProps) {
+function ResumePreview({ data, template = 'classic' }: ResumePreviewProps) {
   const hasContent = data.personalInfo.name || 
                      data.summary || 
                      data.experience.length > 0 || 
@@ -15,7 +17,7 @@ function ResumePreview({ data }: ResumePreviewProps) {
 
   return (
     <div className="resume-preview">
-      <div className="resume-paper">
+      <div className={`resume-paper template-${template}`}>
         {/* Personal Info */}
         <div className="resume-header">
           <h1 className="resume-name">{data.personalInfo.name || 'Your Name'}</h1>

@@ -9,6 +9,10 @@
   padding: 40px;
 }
 
+.preview-controls {
+  margin-bottom: 24px;
+}
+
 .preview-content {
   background: white;
   padding: 24px;

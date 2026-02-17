@@ -1,0 +1,45 @@
+.template-selector {
+  margin-bottom: 24px;
+}
+
+.template-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.template-tabs {
+  display: flex;
+  gap: 8px;
+  background: white;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #e0ddd8;
+}
+
+.template-tab {
+  flex: 1;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4a4a4a;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.template-tab:hover {
+  background: #F7F6F3;
+}
+
+.template-tab.active {
+  background: #8B0000;
+  color: white;
+}

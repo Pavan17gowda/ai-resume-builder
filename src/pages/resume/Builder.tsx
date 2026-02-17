@@ -2,18 +2,31 @@ import { useState, useEffect } from 'react'
 import ResumeNav from '../../components/ResumeNav'
 import ResumePreview from '../../components/ResumePreview'
 import ATSScore from '../../components/ATSScore'
+import TemplateSelector from '../../components/TemplateSelector'
+import ImprovementPanel from '../../components/ImprovementPanel'
 import { resumeStore } from '../../store/resumeStore'
+import { templateStore } from '../../store/templateStore'
 import { calculateATSScore } from '../../utils/atsScoring'
+import { getTopImprovements } from '../../utils/improvementGuidance'
+import { getBulletSuggestions } from '../../utils/bulletGuidance'
 import { ResumeData, Education, Experience, Project } from '../../types/resume'
+import { ResumeTemplate } from '../../types'
 import './Builder.css'
 
 function Builder() {
   const [resumeData, setResumeData] = useState<ResumeData>(resumeStore.getData())
+  const [template, setTemplate] = useState<ResumeTemplate>(templateStore.getTemplate())
   const atsScore = calculateATSScore(resumeData)
+  const improvements = getTopImprovements(resumeData)
 
   useEffect(() => {
     resumeStore.saveData(resumeData)
   }, [resumeData])
+
+  const handleTemplateChange = (newTemplate: ResumeTemplate) => {
+    setTemplate(newTemplate)
+    templateStore.saveTemplate(newTemplate)
+  }
 
   const handlePersonalInfoChange = (field: string, value: string) => {
     setResumeData({
@@ -125,6 +138,8 @@ function Builder() {
               Load Sample Data
             </button>
           </div>
+
+          <TemplateSelector selected={template} onChange={handleTemplateChange} />
 
           <section className="form-section">
             <h3>Personal Information</h3>
@@ -248,6 +263,13 @@ function Builder() {
                   onChange={(e) => updateExperience(exp.id, 'description', e.target.value)}
                   rows={3}
                 />
+                {exp.description && getBulletSuggestions(exp.description).length > 0 && (
+                  <div className="bullet-guidance">
+                    {getBulletSuggestions(exp.description).map((suggestion, idx) => (
+                      <span key={idx} className="guidance-hint">{suggestion}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </section>
@@ -272,6 +294,13 @@ function Builder() {
                   onChange={(e) => updateProject(proj.id, 'description', e.target.value)}
                   rows={2}
                 />
+                {proj.description && getBulletSuggestions(proj.description).length > 0 && (
+                  <div className="bullet-guidance">
+                    {getBulletSuggestions(proj.description).map((suggestion, idx) => (
+                      <span key={idx} className="guidance-hint">{suggestion}</span>
+                    ))}
+                  </div>
+                )}
                 <input
                   type="text"
                   placeholder="Technologies Used"
@@ -311,7 +340,8 @@ function Builder() {
 
         <div className="builder-preview">
           <ATSScore score={atsScore} />
-          <ResumePreview data={resumeData} />
+          <ImprovementPanel improvements={improvements} />
+          <ResumePreview data={resumeData} template={template} />
         </div>
       </div>
     </div>

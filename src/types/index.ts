@@ -10,3 +10,5 @@ export interface ProofData {
   githubLink: string
   deployLink: string
 }
+
+export type ResumeTemplate = 'classic' | 'modern' | 'minimal'

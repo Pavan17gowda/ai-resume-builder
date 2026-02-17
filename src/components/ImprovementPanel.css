@@ -1,0 +1,43 @@
+.improvement-panel {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e0ddd8;
+  margin-bottom: 24px;
+}
+
+.improvement-panel h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.improvement-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.improvement-panel li {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.improvement-panel li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #8B0000;
+  font-weight: bold;
+}
+
+.improvement-panel li:last-child {
+  margin-bottom: 0;
+}
