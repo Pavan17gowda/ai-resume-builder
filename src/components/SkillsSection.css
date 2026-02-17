@@ -1,0 +1,48 @@
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skills-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-header h3 {
+  margin: 0;
+}
+
+.suggest-btn {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #e0ddd8;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.suggest-btn:hover:not(:disabled) {
+  border-color: #8B0000;
+  color: #8B0000;
+}
+
+.suggest-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}

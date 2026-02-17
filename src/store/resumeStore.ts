@@ -14,6 +14,11 @@ const initialData: ResumeData = {
   experience: [],
   projects: [],
   skills: '',
+  skillCategories: {
+    technical: [],
+    soft: [],
+    tools: []
+  },
   github: '',
   linkedin: ''
 }
@@ -59,10 +64,17 @@ const sampleData: ResumeData = {
       id: '1',
       name: 'E-commerce Platform',
       description: 'Built a full-stack e-commerce platform with payment integration and real-time inventory management.',
-      technologies: 'React, Node.js, PostgreSQL, Stripe'
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/example/project'
     }
   ],
   skills: 'JavaScript, TypeScript, React, Node.js, Python, PostgreSQL, AWS, Docker',
+  skillCategories: {
+    technical: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python'],
+    soft: ['Team Leadership', 'Problem Solving', 'Communication'],
+    tools: ['Git', 'Docker', 'AWS', 'PostgreSQL']
+  },
   github: 'github.com/johndoe',
   linkedin: 'linkedin.com/in/johndoe'
 }
@@ -70,7 +82,32 @@ const sampleData: ResumeData = {
 export const resumeStore = {
   getData(): ResumeData {
     const stored = localStorage.getItem(STORAGE_KEY)
-    return stored ? JSON.parse(stored) : initialData
+    if (!stored) {
+      return initialData
+    }
+    
+    const data = JSON.parse(stored)
+    
+    // Migrate old data to new format
+    if (!data.skillCategories) {
+      data.skillCategories = {
+        technical: [],
+        soft: [],
+        tools: []
+      }
+    }
+    
+    // Migrate old projects format
+    if (data.projects && data.projects.length > 0) {
+      data.projects = data.projects.map((proj: any) => ({
+        ...proj,
+        technologies: Array.isArray(proj.technologies) ? proj.technologies : [],
+        liveUrl: proj.liveUrl || '',
+        githubUrl: proj.githubUrl || ''
+      }))
+    }
+    
+    return data
   },
 
   saveData(data: ResumeData): void {

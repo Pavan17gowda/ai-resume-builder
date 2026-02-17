@@ -4,12 +4,14 @@ import ResumePreview from '../../components/ResumePreview'
 import ATSScore from '../../components/ATSScore'
 import TemplateSelector from '../../components/TemplateSelector'
 import ImprovementPanel from '../../components/ImprovementPanel'
+import SkillsSection from '../../components/SkillsSection'
+import ProjectsSection from '../../components/ProjectsSection'
 import { resumeStore } from '../../store/resumeStore'
 import { templateStore } from '../../store/templateStore'
 import { calculateATSScore } from '../../utils/atsScoring'
 import { getTopImprovements } from '../../utils/improvementGuidance'
 import { getBulletSuggestions } from '../../utils/bulletGuidance'
-import { ResumeData, Education, Experience, Project } from '../../types/resume'
+import { ResumeData, Education, Experience, SkillCategories } from '../../types/resume'
 import { ResumeTemplate } from '../../types'
 import './Builder.css'
 
@@ -96,16 +98,18 @@ function Builder() {
   }
 
   const addProject = () => {
-    const newProject: Project = {
+    const newProject = {
       id: Date.now().toString(),
       name: '',
       description: '',
-      technologies: ''
+      technologies: [],
+      liveUrl: '',
+      githubUrl: ''
     }
     setResumeData({ ...resumeData, projects: [...resumeData.projects, newProject] })
   }
 
-  const updateProject = (id: string, field: string, value: string) => {
+  const updateProject = (id: string, field: string, value: any) => {
     setResumeData({
       ...resumeData,
       projects: resumeData.projects.map(proj =>
@@ -275,49 +279,16 @@ function Builder() {
           </section>
 
           <section className="form-section">
-            <div className="section-header">
-              <h3>Projects</h3>
-              <button className="add-btn" onClick={addProject}>+ Add</button>
-            </div>
-            {resumeData.projects.map((proj) => (
-              <div key={proj.id} className="entry-card">
-                <button className="remove-btn" onClick={() => removeProject(proj.id)}>×</button>
-                <input
-                  type="text"
-                  placeholder="Project Name"
-                  value={proj.name}
-                  onChange={(e) => updateProject(proj.id, 'name', e.target.value)}
-                />
-                <textarea
-                  placeholder="Description"
-                  value={proj.description}
-                  onChange={(e) => updateProject(proj.id, 'description', e.target.value)}
-                  rows={2}
-                />
-                {proj.description && getBulletSuggestions(proj.description).length > 0 && (
-                  <div className="bullet-guidance">
-                    {getBulletSuggestions(proj.description).map((suggestion, idx) => (
-                      <span key={idx} className="guidance-hint">{suggestion}</span>
-                    ))}
-                  </div>
-                )}
-                <input
-                  type="text"
-                  placeholder="Technologies Used"
-                  value={proj.technologies}
-                  onChange={(e) => updateProject(proj.id, 'technologies', e.target.value)}
-                />
-              </div>
-            ))}
+            <ProjectsSection 
+              projects={resumeData.projects}
+              onProjectsChange={(projects) => setResumeData({ ...resumeData, projects })}
+            />
           </section>
 
           <section className="form-section">
-            <h3>Skills</h3>
-            <input
-              type="text"
-              placeholder="Comma-separated skills (e.g., JavaScript, React, Node.js)"
-              value={resumeData.skills}
-              onChange={(e) => setResumeData({ ...resumeData, skills: e.target.value })}
+            <SkillsSection
+              skills={resumeData.skillCategories}
+              onSkillsChange={(skillCategories) => setResumeData({ ...resumeData, skillCategories })}
             />
           </section>
 

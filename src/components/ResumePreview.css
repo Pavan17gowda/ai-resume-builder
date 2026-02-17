@@ -235,3 +235,66 @@
 .resume-paper.template-minimal .resume-section {
   margin-bottom: 20px;
 }
+
+
+/* Project Cards */
+.project-card {
+  border: 1px solid #e0ddd8;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.tech-pills, .skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tech-pill, .skill-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  background: white;
+  border: 1px solid #e0ddd8;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #1a1a1a;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.project-link {
+  font-size: 12px;
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 4px 8px;
+  border: 1px solid #e0ddd8;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.project-link:hover {
+  background: #F7F6F3;
+}
+
+/* Skill Groups */
+.skill-group {
+  margin-bottom: 12px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4a4a4a;
+  margin-bottom: 6px;
+  font-style: italic;
+}

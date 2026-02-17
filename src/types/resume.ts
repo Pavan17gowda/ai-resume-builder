@@ -27,7 +27,15 @@ export interface Project {
   id: string
   name: string
   description: string
-  technologies: string
+  technologies: string[]
+  liveUrl?: string
+  githubUrl?: string
+}
+
+export interface SkillCategories {
+  technical: string[]
+  soft: string[]
+  tools: string[]
 }
 
 export interface ResumeData {
@@ -37,6 +45,7 @@ export interface ResumeData {
   experience: Experience[]
   projects: Project[]
   skills: string
+  skillCategories: SkillCategories
   github: string
   linkedin: string
 }
