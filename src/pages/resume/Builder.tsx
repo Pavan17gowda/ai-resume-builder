@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import ResumeNav from '../../components/ResumeNav'
 import ResumePreview from '../../components/ResumePreview'
 import ATSScore from '../../components/ATSScore'
-import TemplateSelector from '../../components/TemplateSelector'
+import TemplatePicker from '../../components/TemplatePicker'
+import ColorPicker from '../../components/ColorPicker'
 import ImprovementPanel from '../../components/ImprovementPanel'
 import SkillsSection from '../../components/SkillsSection'
 import ProjectsSection from '../../components/ProjectsSection'
@@ -12,12 +13,13 @@ import { calculateATSScore } from '../../utils/atsScoring'
 import { getTopImprovements } from '../../utils/improvementGuidance'
 import { getBulletSuggestions } from '../../utils/bulletGuidance'
 import { ResumeData, Education, Experience, SkillCategories } from '../../types/resume'
-import { ResumeTemplate } from '../../types'
+import { ResumeTemplate, ColorTheme } from '../../types'
 import './Builder.css'
 
 function Builder() {
   const [resumeData, setResumeData] = useState<ResumeData>(resumeStore.getData())
   const [template, setTemplate] = useState<ResumeTemplate>(templateStore.getTemplate())
+  const [colorTheme, setColorTheme] = useState<ColorTheme>(templateStore.getColorTheme())
   const atsScore = calculateATSScore(resumeData)
   const improvements = getTopImprovements(resumeData)
 
@@ -28,6 +30,11 @@ function Builder() {
   const handleTemplateChange = (newTemplate: ResumeTemplate) => {
     setTemplate(newTemplate)
     templateStore.saveTemplate(newTemplate)
+  }
+
+  const handleColorChange = (newColor: ColorTheme) => {
+    setColorTheme(newColor)
+    templateStore.saveColorTheme(newColor)
   }
 
   const handlePersonalInfoChange = (field: string, value: string) => {
@@ -143,7 +150,8 @@ function Builder() {
             </button>
           </div>
 
-          <TemplateSelector selected={template} onChange={handleTemplateChange} />
+          <TemplatePicker selected={template} onChange={handleTemplateChange} />
+          <ColorPicker selected={colorTheme} onChange={handleColorChange} />
 
           <section className="form-section">
             <h3>Personal Information</h3>
@@ -310,9 +318,11 @@ function Builder() {
         </div>
 
         <div className="builder-preview">
+          <TemplatePicker selected={template} onChange={handleTemplateChange} />
+          <ColorPicker selected={colorTheme} onChange={handleColorChange} />
           <ATSScore score={atsScore} />
           <ImprovementPanel improvements={improvements} />
-          <ResumePreview data={resumeData} template={template} />
+          <ResumePreview data={resumeData} template={template} colorTheme={colorTheme} />
         </div>
       </div>
     </div>

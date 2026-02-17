@@ -48,3 +48,14 @@
     display: none;
   }
 }
+
+
+.export-btn.download-btn {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.export-btn.download-btn:hover {
+  background: #2563eb;
+}

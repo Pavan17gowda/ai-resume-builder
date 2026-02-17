@@ -1,0 +1,39 @@
+.color-picker {
+  margin-bottom: 24px;
+}
+
+.color-circles {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.color-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.color-circle.active {
+  border-color: #3b82f6;
+  transform: scale(1.15);
+}
+
+.color-checkmark {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}

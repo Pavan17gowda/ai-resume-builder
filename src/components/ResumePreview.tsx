@@ -1,13 +1,15 @@
 import { ResumeData } from '../types/resume'
-import { ResumeTemplate } from '../types'
+import { ResumeTemplate, ColorTheme, COLOR_THEMES } from '../types'
 import './ResumePreview.css'
 
 interface ResumePreviewProps {
   data: ResumeData
   template?: ResumeTemplate
+  colorTheme?: ColorTheme
 }
 
-function ResumePreview({ data, template = 'classic' }: ResumePreviewProps) {
+function ResumePreview({ data, template = 'classic', colorTheme = 'teal' }: ResumePreviewProps) {
+  const accentColor = COLOR_THEMES[colorTheme]
   const hasContent = data.personalInfo.name || 
                      data.summary || 
                      data.experience.length > 0 || 
@@ -17,7 +19,10 @@ function ResumePreview({ data, template = 'classic' }: ResumePreviewProps) {
 
   return (
     <div className="resume-preview">
-      <div className={`resume-paper template-${template}`}>
+      <div 
+        className={`resume-paper template-${template}`}
+        style={{ '--accent-color': accentColor } as React.CSSProperties}
+      >
         {/* Personal Info */}
         <div className="resume-header">
           <h1 className="resume-name">{data.personalInfo.name || 'Your Name'}</h1>
